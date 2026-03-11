@@ -3,17 +3,45 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Short-Stories</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="src/style.css" />
 	</head>
 	<body>
 		<div class="app-container">
-			<h1>Welcome to the short stories AI Generator</h1>
+			<div class="form-container">
+				<form>
+					<input
+						type="text"
+						placeholder="Whisper words for the dog to dream"
+						required
+						autofocus
+						autocomplete="off"
+						class="search-input"
+					/>
+					<input type="submit" class="search-button" />
+				</form>
+			</div>
+			<div class="short-story">
+				Aquí viene la historia corta <br />
+				Y mas texto
+			</div>
+			<img
+				src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/933/original/Sleeping_Dog_.png?1773267456"
+				alt="A white dog with black ears sleeping on a human bed"
+			/>
+
 			<footer>
 				Code and illustrations by
 				<a href="https://github.com/DaniielaMoreno" target="_blank"
 					>Daniela Moreno</a
 				>
+				<br />
 				This project is open-sourced on
 				<a
 					href="https://github.com/DaniielaMoreno/shortstories-generator"
