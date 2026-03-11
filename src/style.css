@@ -1,5 +1,5 @@
 body {
-	background-color: #bf4646;
+	background-color: #843c3c;
 	font-family: "Oooh Baby", cursive;
 }
 
@@ -15,10 +15,10 @@ body {
 }
 
 .form-container {
-	margin: 0 auto;
 	position: absolute;
-	left: 30px;
-	top: 20px;
+	left: 10vw;
+	top: 10vw;
+	width: 70%;
 }
 
 form {
@@ -27,10 +27,11 @@ form {
 
 .short-story {
 	position: absolute;
-	left: 60px;
-	top: 80px;
+	left: 20vw;
+	top: 20vw;
 	color: #eddcc6;
 	font-family: "Oooh Baby", cursive;
+	font-size: clamp(14px, 2vw, 24px);
 }
 
 .search-input {
@@ -39,8 +40,7 @@ form {
 	color: #595959;
 	border: none;
 	border-radius: 6px;
-	max-width: 80%;
-	font-size: 10px;
+	font-size: clamp(14px, 2vw, 24px);
 	padding: 5px 20px;
 	box-shadow: 5px 8px 18px 0px rgba(0, 0, 0, 0.1);
 	margin-right: 5px;
@@ -60,7 +60,7 @@ form {
 	background-color: #7eacb5;
 	border: none;
 	border-radius: 6px;
-	font-size: 10px;
+	font-size: clamp(14px, 2vw, 24px);
 	padding: 5px 20px;
 	cursor: pointer;
 	color: white;
@@ -69,7 +69,7 @@ form {
 
 img {
 	display: block;
-	max-width: 100%;
+	max-width: 70vw;
 	margin: auto;
 }
 
