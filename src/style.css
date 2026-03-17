@@ -73,6 +73,21 @@ img {
 	margin: auto;
 }
 
+.perro {
+	position: relative;
+	display: inline-block;
+}
+
+.capa {
+	display: block;
+}
+
+.capa:nth-child(2) {
+	position: absolute;
+	top: 0;
+	left: 13px;
+}
+
 footer {
 	padding-top: 20px;
 	text-align: center;
