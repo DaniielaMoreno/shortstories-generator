@@ -15,9 +15,9 @@ function generateDream(event) {
 
 	let apiKey = "97fab40oeb1c82af2b7390d7e00fac2t";
 	let input = document.querySelector("#searchInput");
-	let prompt = `Write a short story that rhymes about this: ${input.value}`;
+	let prompt = `Write a very short story about this: ${input.value}`;
 	let context =
-		"You are a dog dreaming. It loves near the forest and works as a rescue dog. Your dreams are short stories of maximum 2 sentences.";
+		"You are a person dreaming of the real world and narrating what is going on in your dream. Stick to telling only one sentence about it. It doesn't have to be meaninful. Don't start by saying 'in my dream'";
 	let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
 	console.log("Generating story");

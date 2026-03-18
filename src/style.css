@@ -6,7 +6,7 @@
 
 body {
 	background-color: #302e2b;
-	font-family: "Oooh Baby", cursive;
+	font-family: "Mynerve", cursive;
 	height: 100vh;
 	overflow: hidden;
 }
@@ -85,7 +85,7 @@ body {
 
 .scene-story {
 	color: #eddcc6;
-	font-family: "Oooh Baby", cursive;
+	font-family: "Mynerve", cursive;
 	font-size: clamp(8px, 1.8vw, 23px);
 	line-height: 1.7;
 	text-align: center;
@@ -115,7 +115,7 @@ form {
 }
 
 .search-input {
-	font-family: "Oooh Baby", cursive;
+	font-family: "Mynerve", cursive;
 	background-color: #fafaf8;
 	color: #595959;
 	border: none;
@@ -134,7 +134,7 @@ form {
 }
 
 .search-button {
-	font-family: "Oooh Baby", cursive;
+	font-family: "Mynerve", cursive;
 	background-color: #7eacb5;
 	border: none;
 	border-radius: 6px;
@@ -198,7 +198,7 @@ footer {
 	text-align: center;
 	color: #eddcc6;
 	font-size: x-small;
-	opacity: 0.5;
+	opacity: 0.3;
 	font-family: "Montserrat", sans-serif;
 	z-index: 5;
 	pointer-events: none;
@@ -207,5 +207,5 @@ footer {
 footer a {
 	pointer-events: all;
 	text-decoration: none;
-	color: #bf4646;
+	color: #7eacb5;
 }
