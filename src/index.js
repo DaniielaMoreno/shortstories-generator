@@ -1,11 +1,9 @@
-const form = document.getElementById("storyForm");
-const formContainer = document.getElementById("formContainer");
-const cloudImg = document.getElementById("cloudImg");
-const storyBox = document.getElementById("storyBox");
-const shortStory = document.getElementById("shortStory");
-const ballBtn = document.getElementById("ballBtn");
+function showDream(event) {
+	event.preventDefault();
 
-function showDream(text) {
+	let shortStory = document.querySelector("#shortStory");
+	shortStory.innerHTML = "probando probando";
+
 	formContainer.classList.add("hidden");
 	cloudImg.classList.add("visible");
 	storyBox.classList.add("visible");
@@ -13,6 +11,13 @@ function showDream(text) {
 	shortStory.textContent = text;
 	storyBox.scrollTop = 0;
 }
+
+let form = document.querySelector("#storyForm");
+form.addEventListener("submit", showDream);
+const formContainer = document.getElementById("formContainer");
+const cloudImg = document.getElementById("cloudImg");
+const storyBox = document.getElementById("storyBox");
+const ballBtn = document.getElementById("ballBtn");
 
 function resetScene() {
 	cloudImg.classList.remove("visible");
@@ -24,15 +29,12 @@ function resetScene() {
 	document.getElementById("searchInput").focus();
 }
 
-form.addEventListener("submit", function (e) {
-	e.preventDefault();
+/*{
 	const input = document.getElementById("searchInput").value;
 
 	// AI API call.
 	// When the story is ready, call: showDream(generatedText)
-	showDream(
-		"This is an example of the text that will appear after the user types a word. The text should not go out of the limits of this cloud. After that, the user can start again by clicking the ball.",
-	);
-});
+	showDream();
+});*/
 
 ballBtn.addEventListener("click", resetScene);

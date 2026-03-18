@@ -21,7 +21,7 @@ body {
 }
 
 /* ─── DOG ──────────────────────────────────────────────────── */
-.scene__dog {
+.scene-dog {
 	position: absolute;
 	width: 90%;
 	height: 90%;
@@ -31,13 +31,13 @@ body {
 }
 
 /* ─── CLOUD ────────────────────────────────────────────────── */
-.scene__cloud {
+.scene-cloud {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 150%;
+	height: 120%;
 	object-fit: contain;
-	bottom: 9%;
-	left: 8%;
+	bottom: 1%;
+	left: -19%;
 	z-index: 1;
 
 	opacity: 0;
@@ -45,7 +45,7 @@ body {
 	transition: opacity 0.6s ease;
 }
 
-.scene__cloud.visible {
+.scene-cloud.visible {
 	opacity: 0.5;
 }
 
@@ -55,12 +55,11 @@ body {
   bubble area — tune top/left/width/height to your PNG.
   Text scrolls invisibly if it overflows.
 */
-.scene__story-box {
+.scene-story-box {
 	position: absolute;
-	top: 2%;
-	left: 1%;
-	width: 52%;
-	height: 72%;
+	top: 21%;
+	left: 22%;
+	width: 43%;
 	z-index: 2;
 
 	overflow-y: auto;
@@ -75,19 +74,19 @@ body {
 	transition: opacity 0.6s ease;
 }
 
-.scene__story-box::-webkit-scrollbar {
+.scene-story-box::-webkit-scrollbar {
 	display: none; /* Chrome / Safari */
 }
 
-.scene__story-box.visible {
+.scene-story-box.visible {
 	opacity: 1;
 	pointer-events: all;
 }
 
-.scene__story {
+.scene-story {
 	color: #eddcc6;
 	font-family: "Oooh Baby", cursive;
-	font-size: clamp(11px, 1.8vw, 22px);
+	font-size: clamp(8px, 1.8vw, 23px);
 	line-height: 1.7;
 	text-align: center;
 }
@@ -127,7 +126,7 @@ form {
 }
 
 .search-input:focus {
-	outline: solid;
+	outline: none;
 }
 
 .search-input::placeholder {
@@ -147,25 +146,33 @@ form {
 }
 
 /* ─── BALL BUTTON ──────────────────────────────────────────── */
-.scene__ball-btn {
+.scene-ball-btn {
 	position: absolute;
 	bottom: 17%;
 	right: 33%;
-	width: 4%;
+	width: 8%;
 	aspect-ratio: 1;
 
-	background: red;
+	background: transparent;
 	border: none;
-	border-radius: 50%;
+	padding: 0;
 	cursor: pointer;
 	z-index: 10;
 
-	opacity: 0;
+	opacity: 1;
 	pointer-events: none;
 	transition: opacity 0.4s ease;
+	transform: 0.3s ease;
 }
 
-.scene__ball-btn.visible {
+.scene-ball-btn img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.scene-ball-btn.visible {
 	opacity: 1;
 	pointer-events: all;
 	animation: ball-pulse 2s ease-in-out infinite;
@@ -175,9 +182,11 @@ form {
 	0%,
 	100% {
 		transform: scale(1);
+		opacity: 0.6;
 	}
 	50% {
-		transform: scale(1.15);
+		transform: scale(1.3);
+		opacity: 1;
 	}
 }
 

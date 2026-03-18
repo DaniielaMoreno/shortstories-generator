@@ -11,35 +11,37 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="src/style.css" />
+		<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 	</head>
 	<body>
 		<div class="scene">
 			<!-- Layer 0: dog + bed, always visible -->
 			<img
-				class="scene__dog"
-				src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/933/original/Sleeping_Dog_.png?1773267456"
+				class="scene-dog"
+				src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/179/096/original/Sleeping_Dog_.png?1773843218"
 				alt="A white dog with black ears sleeping on a human bed"
 			/>
 
 			<!-- Layer 1: cloud image, hidden until dream is triggered -->
 			<img
-				class="scene__cloud"
+				class="scene-cloud"
 				id="cloudImg"
 				src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/179/094/original/Cloud.png?1773837671"
 				alt=""
 			/>
 
 			<!-- Layer 2: story text, scrollable, hidden until dream is triggered -->
-			<div class="scene__story-box" id="storyBox">
-				<p class="scene__story" id="shortStory"></p>
+			<div class="scene-story-box" id="storyBox">
+				<p class="scene-story" id="shortStory"></p>
 			</div>
 
 			<!-- Invisible button over the ball illustration — resets the scene -->
-			<button
-				class="scene__ball-btn"
-				id="ballBtn"
-				aria-label="Start again"
-			></button>
+			<button class="scene-ball-btn" id="ballBtn" aria-label="Start again">
+				<img
+					src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/179/097/original/Ball.png?1773843683"
+					alt="Tennis ball"
+				/>
+			</button>
 
 			<!-- Search form, floats over the scene top-left -->
 			<div class="form-container" id="formContainer">
@@ -74,6 +76,6 @@
 			</footer>
 		</div>
 
-		<script src="index.js"></script>
+		<script src="src/index.js"></script>
 	</body>
 </html>
