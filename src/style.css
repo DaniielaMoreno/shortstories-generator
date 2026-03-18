@@ -1,37 +1,118 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	background-color: #843c3c;
+	background-color: #302e2b;
 	font-family: "Oooh Baby", cursive;
+	height: 100vh;
+	overflow: hidden;
 }
 
-.app-container {
-	max-width: 98%;
-	margin: 0 auto;
-	padding: 20px 50px;
-	font-family: Arial, sans-serif;
-	background-color: #34322F;
-	border-radius: 8px;
-	box-shadow: 4px 11px 10px 2px rgba(0, 0, 0, 0.1);
+.scene {
 	position: relative;
+	width: 100vw;
+	height: 56.25vw;
+	max-height: 100vh;
+	max-width: calc(100vh * 16 / 9);
+	margin: 0 auto;
 }
 
+/* ─── DOG ──────────────────────────────────────────────────── */
+.scene__dog {
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	object-fit: contain;
+	object-position: top right;
+	z-index: 0;
+}
+
+/* ─── CLOUD ────────────────────────────────────────────────── */
+.scene__cloud {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	bottom: 9%;
+	left: 8%;
+	z-index: 1;
+
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.6s ease;
+}
+
+.scene__cloud.visible {
+	opacity: 0.5;
+}
+
+/* ─── STORY BOX ────────────────────────────────────────────── */
+/*
+  Sits on top of the cloud. The box covers the cloud's main
+  bubble area — tune top/left/width/height to your PNG.
+  Text scrolls invisibly if it overflows.
+*/
+.scene__story-box {
+	position: absolute;
+	top: 2%;
+	left: 1%;
+	width: 52%;
+	height: 72%;
+	z-index: 2;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE */
+
+	padding: 3%;
+
+	opacity: 1;
+	pointer-events: none;
+	transition: opacity 0.6s ease;
+}
+
+.scene__story-box::-webkit-scrollbar {
+	display: none; /* Chrome / Safari */
+}
+
+.scene__story-box.visible {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.scene__story {
+	color: #eddcc6;
+	font-family: "Oooh Baby", cursive;
+	font-size: clamp(11px, 1.8vw, 22px);
+	line-height: 1.7;
+	text-align: center;
+}
+
+/* ─── FORM ─────────────────────────────────────────────────── */
 .form-container {
 	position: absolute;
-	left: 10vw;
-	top: 10vw;
-	width: 70%;
+	top: 16%;
+	left: 10%;
+	z-index: 10;
+	transition:
+		opacity 0.4s ease,
+		transform 0.4s ease;
+}
+
+.form-container.hidden {
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-8px);
 }
 
 form {
-	position: static;
-}
-
-.short-story {
-	position: absolute;
-	left: 20vw;
-	top: 20vw;
-	color: #eddcc6;
-	font-family: "Oooh Baby", cursive;
-	font-size: clamp(14px, 2vw, 24px);
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .search-input {
@@ -40,15 +121,13 @@ form {
 	color: #595959;
 	border: none;
 	border-radius: 6px;
-	font-size: clamp(14px, 2vw, 24px);
+	font-size: clamp(8px, 2vw, 18px);
 	padding: 5px 20px;
-	box-shadow: 5px 8px 18px 0px rgba(0, 0, 0, 0.1);
-	margin-right: 5px;
+	box-shadow: 5px 8px 18px 0 rgba(0, 0, 0, 0.1);
 }
 
 .search-input:focus {
-	outline-style: solid;
-	outline-color: #f0898783;
+	outline: solid;
 }
 
 .search-input::placeholder {
@@ -60,44 +139,64 @@ form {
 	background-color: #7eacb5;
 	border: none;
 	border-radius: 6px;
-	font-size: clamp(14px, 2vw, 24px);
+	font-size: clamp(8px, 2vw, 18px);
 	padding: 5px 20px;
 	cursor: pointer;
 	color: white;
-	box-shadow: 5px 8px 18px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 5px 8px 18px 0 rgba(0, 0, 0, 0.1);
 }
 
-img {
-	display: block;
-	max-width: 70vw;
-	margin: auto;
-}
-
-.perro {
-	position: relative;
-	display: inline-block;
-}
-
-.capa {
-	display: block;
-}
-
-.capa:nth-child(2) {
+/* ─── BALL BUTTON ──────────────────────────────────────────── */
+.scene__ball-btn {
 	position: absolute;
-	top: 0;
-	left: 13px;
+	bottom: 17%;
+	right: 33%;
+	width: 4%;
+	aspect-ratio: 1;
+
+	background: red;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10;
+
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
 }
 
+.scene__ball-btn.visible {
+	opacity: 1;
+	pointer-events: all;
+	animation: ball-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ball-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.15);
+	}
+}
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
 footer {
-	padding-top: 20px;
+	position: absolute;
+	bottom: 1%;
+	width: 100%;
 	text-align: center;
 	color: #eddcc6;
 	font-size: x-small;
 	opacity: 0.5;
 	font-family: "Montserrat", sans-serif;
+	z-index: 5;
+	pointer-events: none;
 }
 
-a {
+footer a {
+	pointer-events: all;
 	text-decoration: none;
 	color: #bf4646;
 }

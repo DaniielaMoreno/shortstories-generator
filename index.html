@@ -13,36 +13,48 @@
 		<link rel="stylesheet" href="src/style.css" />
 	</head>
 	<body>
-		<div class="app-container">
-			<div class="form-container">
-				<form>
+		<div class="scene">
+			<!-- Layer 0: dog + bed, always visible -->
+			<img
+				class="scene__dog"
+				src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/933/original/Sleeping_Dog_.png?1773267456"
+				alt="A white dog with black ears sleeping on a human bed"
+			/>
+
+			<!-- Layer 1: cloud image, hidden until dream is triggered -->
+			<img
+				class="scene__cloud"
+				id="cloudImg"
+				src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/179/094/original/Cloud.png?1773837671"
+				alt=""
+			/>
+
+			<!-- Layer 2: story text, scrollable, hidden until dream is triggered -->
+			<div class="scene__story-box" id="storyBox">
+				<p class="scene__story" id="shortStory"></p>
+			</div>
+
+			<!-- Invisible button over the ball illustration — resets the scene -->
+			<button
+				class="scene__ball-btn"
+				id="ballBtn"
+				aria-label="Start again"
+			></button>
+
+			<!-- Search form, floats over the scene top-left -->
+			<div class="form-container" id="formContainer">
+				<form id="storyForm">
 					<input
 						type="text"
-						placeholder="Whisper words for the dog to dream"
+						placeholder="Type a word..."
 						required
 						autofocus
 						autocomplete="off"
 						class="search-input"
+						id="searchInput"
 					/>
-					<input type="submit" class="search-button" />
+					<input type="submit" value="Dream" class="search-button" />
 				</form>
-			</div>
-			<div class="short-story">
-				Aquí viene la historia corta <br />
-				Y mas texto
-			</div>
-			<div class="perro">
-				<img
-					class="capa"
-					src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/933/original/Sleeping_Dog_.png?1773267456"
-					alt="A white dog with black ears sleeping on a human bed"
-				/>
-
-				<img
-					class="capa"
-					src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/179/091/original/Cloud.png?1773779420"
-					alt=""
-				/>
 			</div>
 
 			<footer>
@@ -61,6 +73,7 @@
 				<a href="https://shortstories-generator.netlify.app/">Netlify</a>
 			</footer>
 		</div>
-		<script src="src/index.js"></script>
+
+		<script src="index.js"></script>
 	</body>
 </html>
