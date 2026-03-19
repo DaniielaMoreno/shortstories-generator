@@ -1,5 +1,6 @@
+let shortStory = document.querySelector("#shortStory");
+
 function showDream(response) {
-	let shortStory = document.querySelector("#shortStory");
 	shortStory.innerHTML = response.data.answer;
 
 	formContainer.classList.add("hidden");
@@ -20,9 +21,7 @@ function generateDream(event) {
 		"You are a person dreaming of the real world and narrating what is going on in your dream. Stick to telling only one sentence about it. It doesn't have to be meaninful. Don't start by saying 'in my dream'";
 	let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
-	console.log("Generating story");
-	console.log(`${prompt}`);
-	console.log(`${context}`);
+	shortStory.innerHTML = `Generating short story about ${input.value}`;
 	axios.get(apiURL).then(showDream);
 }
 

@@ -52,8 +52,7 @@ body {
 /* ─── STORY BOX ────────────────────────────────────────────── */
 /*
   Sits on top of the cloud. The box covers the cloud's main
-  bubble area — tune top/left/width/height to your PNG.
-  Text scrolls invisibly if it overflows.
+  bubble area.
 */
 .scene-story-box {
 	position: absolute;
@@ -81,6 +80,7 @@ body {
 .scene-story-box.visible {
 	opacity: 1;
 	pointer-events: all;
+	transition: opacity 0.6s ease;
 }
 
 .scene-story {
