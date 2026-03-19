@@ -234,7 +234,7 @@ footer {
 	text-align: center;
 	color: #eddcc6;
 	font-size: xx-small;
-	opacity: 0.4;
+	opacity: 0.5;
 	font-family: "Montserrat", sans-serif;
 	z-index: 5;
 	pointer-events: none;
@@ -244,4 +244,9 @@ footer a {
 	pointer-events: all;
 	text-decoration: none;
 	color: #7eacb5;
+}
+
+a:hover {
+	color: #fa897a;
+	transform: scale(1.5);
 }
