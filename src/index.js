@@ -6,7 +6,7 @@ function showDream(response) {
 	formContainer.classList.add("hidden");
 	cloudImg.classList.add("visible");
 	storyBox.classList.add("visible");
-	ballBtn.classList.add("visible");
+	ballBtn.classList.add("active");
 	shortStory.textContent = text;
 	storyBox.scrollTop = 0;
 }
@@ -16,12 +16,12 @@ function generateDream(event) {
 
 	let apiKey = "97fab40oeb1c82af2b7390d7e00fac2t";
 	let input = document.querySelector("#searchInput");
-	let prompt = `Write a very short story about this: ${input.value}`;
+	let prompt = `Write a micro-story about this: ${input.value}`;
 	let context =
-		"You are a person dreaming of the real world and narrating what is going on in your dream. Stick to telling only one sentence about it. It doesn't have to be meaninful. Don't start by saying 'in my dream'";
+		"You are a person dreaming of the real world and narrating what is going on in your dream in the style of microstories of Augusto Monterroso. Stick to telling only one sentence about it. It doesn't have to be meaninful. Don't start by saying 'in my dream'";
 	let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
-	shortStory.innerHTML = `Generating short story about ${input.value}`;
+	shortStory.innerHTML = `<div class="generating"> Generating a short story about ${input.value}</div>`;
 	axios.get(apiURL).then(showDream);
 }
 
@@ -36,19 +36,11 @@ const ballBtn = document.getElementById("ballBtn");
 function resetScene() {
 	cloudImg.classList.remove("visible");
 	storyBox.classList.remove("visible");
-	ballBtn.classList.remove("visible");
+	ballBtn.classList.remove("active");
 	shortStory.textContent = "";
 	formContainer.classList.remove("hidden");
 	document.getElementById("searchInput").value = "";
 	document.getElementById("searchInput").focus();
 }
-
-/*{
-	const input = document.getElementById("searchInput").value;
-
-	// AI API call.
-	// When the story is ready, call: showDream(generatedText)
-	showDream();
-});*/
 
 ballBtn.addEventListener("click", resetScene);
